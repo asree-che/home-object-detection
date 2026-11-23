@@ -17,7 +17,7 @@ st.write("Upload images to identify objects using AI.")
 # Load the AI model
 @st.cache_resource
 def load_model():
-    return YOLO("yolo11n.pt")
+    return YOLO("yolo11s.pt")
 
 model = load_model()
 
@@ -55,7 +55,7 @@ if uploaded_files:
             results = model.predict(
                 source=np.array(image),
                 conf=confidence,
-                imgsz=640,
+                imgsz=960,
                 device="cpu",
                 verbose=False
             )
